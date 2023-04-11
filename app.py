@@ -12,8 +12,6 @@ def index():
 def cadastro():
     return render_template('cadastro.html')
 
-    
-
 
 @app.route('/resultados', methods=['GET', 'POST'])
 def resultados():
