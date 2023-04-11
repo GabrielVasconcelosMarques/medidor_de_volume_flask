@@ -4,10 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='home.css') }}">
+    <title>Home</title>
 </head>
 <body>
     {% include 'cabecalho.html' %}
-    <h1>home</h1>
+    <div class="container">
+		<h1>Medidor de Volumes</h1>
+		<h2>Uma maneira fácil de controlar seu consumo de água</h2>
+		<p>Nossa ferramenta de medição de volumes permite que você registre e acompanhe o consumo diário de água em sua casa ou escritório. Basta inserir as informações de volume e data e você terá um registro completo do seu consumo.</p>
+		<button>Iniciar</button>
+	</div>
 </body>
 </html>

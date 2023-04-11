@@ -1,0 +1,43 @@
+.navbar {
+    background-color: #1c8080;
+    overflow: hidden;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Define o estilo do texto do cabeçalho */
+.navbar-brand {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ff6543;
+    padding: 16px 20px;
+    text-decoration: none;
+    float: left;
+}
+
+/* Define o estilo dos links de navegação */
+.navbar-nav {
+    float: right;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-nav li {
+    float: left;
+}
+
+.navbar-nav li a {
+    display: block;
+    padding: 16px 20px;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.navbar-nav li a:hover {
+    background-color: #ff6543;
+}

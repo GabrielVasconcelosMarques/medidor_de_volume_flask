@@ -39,10 +39,13 @@ def resultados():
         # Exibindo o DataFrame resultante
         print(df)
         try:
+            colors = ['gold', 'mediumturquoise', 'darkorange', 'lightgreen']
             labels = df['nome'].tolist()
             values = df['volume'].tolist()
             fig = go.Figure(data=[go.Pie(labels=labels, values=values)])
-            fig.update_layout(title='Gráfico de pizza')
+            fig.update_layout(title='Gráfico de consumo de litros por pessoa')
+            fig.update_traces(hoverinfo='label+percent', textinfo='value', textfont_size=20,
+            marker=dict(line=dict(color='#000000', width=2)))
 
             # Converte o objeto fig em um JSON e passe-o para o seu modelo HTML
             graphJSON = pio.to_json(fig)
