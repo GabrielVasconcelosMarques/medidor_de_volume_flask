@@ -7,6 +7,8 @@
 	{% include 'cabecalho.html' %}
 	<h1>Formulário de Consumo de Água</h1>
 	<form action="/enviar" method="post">
+		<label for="nome">Nome:</label>
+		<input type="text" id="nome" name="nome"><br><br>
 		<label for="data">Data:</label>
 		<input type="date" id="data" name="data"><br><br>
 		<label for="volume">Volume de Água Consumido:</label>

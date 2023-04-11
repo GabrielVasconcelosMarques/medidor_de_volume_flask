@@ -1,6 +1,9 @@
 from flask import Flask, render_template, request, url_for
 import json
 import pandas as pd
+import plotly.graph_objs as go
+import plotly.express as px
+import plotly.io as pio
 
 app = Flask(__name__)
 
@@ -27,7 +30,7 @@ def resultados():
         filtered_data = []
         for data in data_list:
             if data['data'] == selected_date:
-                filtered_data.append({'volume': data['volume']})
+                filtered_data.append({'nome': data['nome'], 'volume': data['volume'], 'data': data['data']})
 
 
         # Convertendo o objeto Python em um DataFrame do pandas
@@ -35,13 +38,24 @@ def resultados():
 
         # Exibindo o DataFrame resultante
         print(df)
+        try:
+            labels = df['nome'].tolist()
+            values = df['volume'].tolist()
+            fig = go.Figure(data=[go.Pie(labels=labels, values=values)])
+            fig.update_layout(title='Gráfico de pizza')
 
-        return render_template('resultados.html', selected_date=selected_date, filtered_data=filtered_data)
+            # Converte o objeto fig em um JSON e passe-o para o seu modelo HTML
+            graphJSON = pio.to_json(fig)
+        except:
+            graphJSON = ''
+
+        return render_template('resultados.html', selected_date=selected_date, filtered_data=filtered_data, graphJSON=graphJSON)
 
 
 @app.route('/enviar', methods=['POST'])
 def enviar():
     data = {}
+    data['nome'] = request.form['nome']
     data['data'] = request.form['data']
     data['volume'] = request.form['volume']
 

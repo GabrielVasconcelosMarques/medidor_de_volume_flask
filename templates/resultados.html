@@ -32,5 +32,20 @@
         </tbody>
         </table>
     {% endif %}
+    <!-- Adicione a div onde o gráfico será exibido -->
+    <div id="myPlot"></div>
+
+    <!-- Adicione o script do Plotly -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+    <!-- Adicione o script para gerar o gráfico -->
+    <script>
+    // Obtenha o JSON do gráfico a partir do Flask
+    var graphJSON = {{ graphJSON|safe }};
+
+    // Crie o gráfico usando o JSON
+    Plotly.newPlot('myPlot', graphJSON.data, graphJSON.layout);
+    </script>
+
 </body>
 </html>
