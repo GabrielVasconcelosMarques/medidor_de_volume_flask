@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% include 'cabecalho.html' %}
+    <h1>Resultados</h1>
+    <form action="/resultados" method="post">
+		<label for="data">Data:</label>
+		<input type="date" id="data" name="data"><br><br>
+		<input type="submit" value="Enviar">
+	</form>
+
+    {% if selected_date %}
+        <h2>Resultados para a data {{ selected_date }}</h2>
+        <table>
+        <thead>
+            <tr>
+            <th>Volume</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for data in filtered_data %}
+            <tr>
+                <td>{{ data['volume'] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+    {% endif %}
+</body>
+</html>
