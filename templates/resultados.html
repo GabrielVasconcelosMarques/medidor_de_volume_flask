@@ -29,7 +29,8 @@
 	</form>
 
     <!-- Adicione a div onde o gráfico será exibido -->
-    <div id="myPlot" style="width: 60vw;"></div>
+    <div id="myPlot"></div>
+    <div id="myPlot2"></div>
 
     <!-- Adicione o script do Plotly -->
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
@@ -38,9 +39,11 @@
     <script>
     // Obtenha o JSON do gráfico a partir do Flask
     var graphJSON = {{ graphJSON|safe }};
+    var graphJSON2 = {{ graphJSON2|safe }};
 
     // Crie o gráfico usando o JSON
     Plotly.newPlot('myPlot', graphJSON.data, graphJSON.layout);
+    Plotly.newPlot('myPlot2', graphJSON2.data, graphJSON2.layout);
     </script>
 
 </body>
